@@ -1,1 +1,1 @@
-web: your_go_binary
+web: go run main.go
