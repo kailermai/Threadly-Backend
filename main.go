@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"main/database"
 	"main/routes"
@@ -11,6 +12,7 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
 	database.Connect()
 	app := fiber.New()
 
@@ -21,5 +23,5 @@ func main() {
 	})))
 
 	routes.Setup(app)
-	log.Fatal(app.Listen(":8000"))
+	log.Fatal(app.Listen(":" + port))
 }
